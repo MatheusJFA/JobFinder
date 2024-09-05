@@ -1,0 +1,17 @@
+{
+  "name": "jobfinder",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "Matheus José Ferreira de Aguiar",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.7.7",
+    "dotenv": "^16.4.5",
+    "exceljs": "^4.4.0"
+  }
+}
