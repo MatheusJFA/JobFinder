@@ -18,7 +18,7 @@ const websites = [
     "*.remote.com"
 ];
 
-async function search(query) {
+async function searchJob(query) {
     let data = [];
     console.log(`Searching for ${query} jobs... Please wait`);
 
@@ -116,4 +116,4 @@ async function search(query) {
         });
 }
 
-module.exports = search;
+module.exports = searchJob;
