@@ -1,9 +1,6 @@
 const readline = require('readline/promises');
-
-const dotenv = require('dotenv');
 const searchJob = require('./searchJob');
-const searchFreelancerJob = require('./searchFreelancerJob');
-dotenv.config();
+const lookupWebsites = require('./lookupWebsites');
 
 (async () => {
     let rl = readline.createInterface({
@@ -16,17 +13,20 @@ dotenv.config();
 
     const jobType = await rl.question(`Choose: \n1) for full time job \n2) for freelancer job: \n > `);
 
-    switch(jobType) {
-        case '1':
-            await searchJob(query);
-            break;
-        case '2':
-            await searchFreelancerJob(query);
-            break;
-        default:
-            console.log("Invalid option");
-            break
+    if (jobType !== '1' && jobType !== '2') {
+        rl.close();
+        throw new Error('Invalid option');
     }
+
+    const jobName = jobType === '1' ? 'full-time' : 'freelancer';
+    console.log(`Searching for ${jobName} jobs...`);
+
+    const websites = lookupWebsites(jobType);
+    console.log(`Searching in the following websites: ${websites.join(', ')}`);
+
+    const { message } = await searchJob(query, websites);
+
+    console.log(message);
 
     rl.close(); // Close the readline
 })()
