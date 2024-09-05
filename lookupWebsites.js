@@ -7,6 +7,7 @@ function lookupWebsites(type) {
                 "vagas.com",
                 "indeed.com.br",
                 "linkedin.com",
+                "catho.com.br",
                 "infojobs.com.br",
                 "boards.greenhouse.io",
                 "jobs.ashbyhq.com",
